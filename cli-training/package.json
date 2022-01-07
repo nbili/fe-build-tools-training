@@ -1,0 +1,16 @@
+{
+  "name": "cli-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "figlet 'nbili'",
+    "test2": "corona-cli"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "figlet-cli": "^0.1.1"
+  }
+}
