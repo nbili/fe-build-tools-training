@@ -4,7 +4,9 @@ const pkgJSON = require("./package.json");
 const chalk = require("chalk");
 const sym = require("log-symbols");
 
-const meow = require("meow");
+// const meow = require("meow");
+const fetch = require("node-fetch");
+const apiURL = `https://api.github.com/users/nbili`;
 
 const error = chalk.bold.red.inverse;
 const warning = chalk.keyword("orange").inverse;
@@ -12,7 +14,7 @@ const success = chalk.green.inverse;
 
 const init = require("./utils/init");
 
-(() => {
+(async () => {
   init();
 
   console.log(`
@@ -50,4 +52,10 @@ ${sym.warning} ${warning(" Warning! ")}
 ${sym.success} ${success(" Success! ")}
 `);
 
+  const res = await fetch(apiURL);
+  const data = await res.json();
+
+  const followers = data.followers;
+
+  console.log(chalk.blue.bold(followers));
 })();
