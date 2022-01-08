@@ -1,10 +1,11 @@
 {
   "name": "cli-training",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node js Documentation Cli",
   "main": "index.js",
+  "type": "commonjs",
   "bin": {
-    "train-cli": "index.js"
+    "train": "index.js"
   },
   "scripts": {
     "test": "test"
@@ -12,5 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "clear-any-console": "^1.16.2",
+    "log-symbols": "^4.1.0"
+  }
 }
