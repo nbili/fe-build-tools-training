@@ -35,15 +35,28 @@ const options = {
     test: {
       type: "boolean",
       default: false,
-			alias: 't'
+      alias: "t",
     },
   },
 };
 
 const flag = meow(helpText, options);
 
-console.log(flag);
+// console.log(flag);
 
 // console.log(cli.flags);
 // console.log("=======");
 // console.log(cli.input);
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question(`what do you want ? \n`, (answer) => {
+  console.log("answer: \n", answer);
+
+  rl.close();
+});
