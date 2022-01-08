@@ -1,23 +1,29 @@
 #!/usr/bin/env node
 
-const clearConsole = require("clear-any-console");
-const pkgJSON = require('./package.json')
-const chalk = require('chalk')
-const sym = require('log-symbols')
+const pkgJSON = require("./package.json");
+const chalk = require("chalk");
+const sym = require("log-symbols");
+
+const meow = require("meow");
 
 const error = chalk.bold.red.inverse;
-const warning = chalk.keyword('orange').inverse;
+const warning = chalk.keyword("orange").inverse;
 const success = chalk.green.inverse;
 
-clearConsole();
+const init = require("./utils/init");
 
-console.log(`
+(() => {
+  init();
+
+  console.log(`
 
 ${pkgJSON.description}
 
 ${chalk.bgBlueBright.bold(` About documentation `)}
 
-${chalk.italic(` There are several types of documentation available on this website: `)}
+${chalk.italic(
+  ` There are several types of documentation available on this website: `
+)}
 
 ${chalk.bgGreen(` API reference documentation `)}
 
@@ -37,9 +43,11 @@ It does not document modules provided by the community.
 
 test >
 
-${sym.error} ${error(' Error! ')}
+${sym.error} ${error(" Error! ")}
 
-${sym.warning} ${warning(' Warning! ')}
+${sym.warning} ${warning(" Warning! ")}
 
-${sym.success} ${success(' Success! ')}
+${sym.success} ${success(" Success! ")}
 `);
+
+})();
