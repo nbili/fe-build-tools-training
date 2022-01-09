@@ -1,3 +1,5 @@
 {
-  "name": "{{name}}"
+  "name": "{{name}}",
+  "description": "{{description}}",
+  "version": "{{version}}"
 }
