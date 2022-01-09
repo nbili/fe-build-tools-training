@@ -1,0 +1,12 @@
+{
+  "name": "cra-cli",
+  "version": "0.0.1",
+  "description": "create a cli",
+  "bin": {
+    "cra-cli": "index.js",
+    "cra": "index.js"
+  },
+  "dependencies": {
+    "copy-template-dir": "^1.4.0"
+  }
+}
