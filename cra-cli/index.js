@@ -6,7 +6,7 @@ const copy = require("copy-template-dir");
 const vars = {
   name: "cli-image",
   version: "0.0.1",
-  description: "create a cli",
+  description: "create a cli for test",
 };
 
 const inDir = path.join(__dirname, `template`);
