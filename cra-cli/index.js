@@ -3,22 +3,27 @@
 const path = require("path");
 const copy = require("copy-template-dir");
 
-const vars = {
-  name: "cli-image",
-  version: "0.0.1",
-  description: "create a cli for test",
-};
+const ask = require("./utils/ask");
+const init = require("./utils/init");
 
-const inDir = path.join(__dirname, `template`);
-const outDir = path.join(process.cwd(), vars.name);
+void (async () => {
+  init();
 
-copy(inDir, outDir, vars, (err, createdFile) => {
-  if (err) throw err;
+  const name = await ask({ message: `Cli Name ?`, hint: "(kebab-case only)" });
+  const description = await ask({ message: `Cli description` });
+  const version = await ask({ message: `Cli version?`, initial: "0.0.1" });
 
-  createdFile.forEach((filePath) => {
-    const fileName = path.basename(filePath);
-    console.log(`Created: ${fileName}`);
+  const inDir = path.join(__dirname, `template`);
+  const outDir = path.join(process.cwd(), name);
+
+  copy(inDir, outDir, { name, description, version }, (err, createdFile) => {
+    if (err) throw err;
+
+    createdFile.forEach((filePath) => {
+      const fileName = path.basename(filePath);
+      console.log(`Created: ${fileName}`);
+    });
+
+    console.log("Done!");
   });
-
-  console.log('Done!')
-});
+})();
