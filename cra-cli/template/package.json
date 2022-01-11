@@ -4,5 +4,11 @@
   "version": "{{version}}",
   "bin": {
     "{{name}}": "index.js"
-  }
+  },
+  "author": {
+    "name": "{{authorName}}",
+    "email": "{{authorEmail}}",
+    "url": "{{authorUrl}}"
+  },
+  "license": "{{license}}"
 }
