@@ -13,6 +13,11 @@ void (async () => {
   init();
 
   const name = await ask({ message: `Cli Name ?`, hint: "(kebab-case only)" });
+  const command = await ask({
+    message: `Cli command ?`,
+    hint: "(optional: if diff from cli name)",
+  });
+
   const description = await ask({ message: `Cli description` });
   const version = await ask({ message: `Cli version?`, initial: "0.0.1" });
 
@@ -26,6 +31,7 @@ void (async () => {
 
   const vars = {
     name,
+    command: command ? command : name,
     description,
     version,
     authorName,
