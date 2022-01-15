@@ -8,7 +8,14 @@ module.exports = async ({ message, hint, initial }) => {
       message,
       hint,
       initial,
-    }).run()
+      validate(value) {
+        return !value ? `please input a value` : true;
+      },
+    })
+      .on("cancel", () => {
+        process.exit(1);
+      })
+      .run()
   );
 
   handleError(`INPUT`, err);
