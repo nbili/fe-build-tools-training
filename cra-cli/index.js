@@ -3,8 +3,8 @@
 const path = require("path");
 const copy = require("copy-template-dir");
 
-const ask = require("./utils/ask");
 const init = require("./utils/init");
+const questions = require("./utils/questions");
 
 const { green: g, dim: d } = require("chalk");
 const alert = require("cli-alerts");
@@ -12,33 +12,10 @@ const alert = require("cli-alerts");
 void (async () => {
   init();
 
-  const name = await ask({ message: `Cli Name ?`, hint: "(kebab-case only)" });
-  const command = await ask({
-    message: `Cli command ?`,
-    hint: "(optional: if diff from cli name)",
-  });
-
-  const description = await ask({ message: `Cli description` });
-  const version = await ask({ message: `Cli version?`, initial: "0.0.1" });
-
-  const authorName = await ask({ message: `Cli author name?` });
-  const authorEmail = await ask({ message: `Cli author email?` });
-  const authorUrl = await ask({ message: `Cli author url?` });
-  const license = await ask({ message: `Cli License?`, initial: "UNLICENSED" });
+  const vars = await questions();
 
   const inDir = path.join(__dirname, `template`);
-  const outDir = path.join(process.cwd(), name);
-
-  const vars = {
-    name,
-    command: command ? command : name,
-    description,
-    version,
-    authorName,
-    authorEmail,
-    authorUrl,
-    license,
-  };
+  const outDir = path.join(process.cwd(), vars.name);
 
   const output = vars.name;
 
