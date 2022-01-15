@@ -8,7 +8,7 @@ module.exports = async ({ message, hint, initial }) => {
       message,
       hint,
       initial,
-      validate(value) {
+      validate(value, state) {
         return !value ? `please input a value` : true;
       },
     })
