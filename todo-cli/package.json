@@ -1,0 +1,40 @@
+{
+	"name": "todo-cli",
+	"description": "todo",
+	"version": "0.0.1",
+	"license": "MIT",
+	"bin": {
+		"todo-cli": "index.js",
+		"todo": "index.js"
+	},
+	"author": {
+		"name": "nbili",
+		"email": "coding520@163.com",
+		"url": "https://nbili.cc"
+	},
+	"keywords": [
+		"todo-cli",
+		"nbili"
+	],
+	"files": [
+		"index.js",
+		"utils"
+	],
+	"scripts": {
+		"format": "prettier --write \"./**/*.{js,json}\""
+	},
+	"dependencies": {
+		"chalk": "^5.0.0",
+		"cli-alerts": "^1.2.2",
+		"cli-handle-error": "^4.4.0",
+		"cli-handle-unhandled": "^1.1.1",
+		"cli-meow-help": "^2.0.2",
+		"cli-welcome": "^2.2.2",
+		"lowdb": "^1.0.0",
+		"make-dir": "^3.1.0",
+		"meow": "^9.0.0"
+	},
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	}
+}
