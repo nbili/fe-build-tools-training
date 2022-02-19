@@ -1,14 +1,18 @@
 module.exports = {
-  // mode: "development",
-  mode: "production",
+  mode: "development",
+  // mode: "production",
   entry: "./src/index.js",
   output: {
     clean: true,
-    filename: "dist.js",
-    // libraryTarget: "module",
-    libraryTarget: "module",
+    library: {
+      // name: "Test",
+      // libraryTarget: "commonjs",
+      type: "module",
+      umdNamedDefine: true,
+    },
   },
+	externals: ['Test'],
   experiments: {
     outputModule: true,
-  }
+  },
 };
